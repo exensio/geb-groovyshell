@@ -1,0 +1,2 @@
+updater.remove()
+firefoxDriver.quit()

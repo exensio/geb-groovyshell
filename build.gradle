@@ -1,35 +1,29 @@
-apply plugin: 'groovy'
+import com.tkruse.gradle.groovysh.ApplicationShellTask
+
+plugins {
+    id "com.github.tkruse.groovysh" version "1.0.8"
+}
+
 apply plugin: 'idea'
+apply plugin: 'java'
 
 repositories {
     mavenCentral()
-}
-
-configurations {
-    groovyShell
 }
 
 def gebVersion = '0.9.0'
 def webdriverVersion = '2.46.0'
 
 dependencies {
-    compile 'org.codehaus.groovy:groovy-all:2.4.6'
-
     compile "org.gebish:geb-core:$gebVersion"
     compile "org.seleniumhq.selenium:selenium-support:$webdriverVersion"
     compile "org.seleniumhq.selenium:selenium-firefox-driver:$webdriverVersion"
-
-    groovyShell 'commons-cli:commons-cli:1.2'
-    groovyShell('jline:jline:2.11') {
-        exclude(group: 'junit', module: 'junit')
-    }
-    groovyShell 'org.codehaus.groovy:groovy-groovysh:2.4.6'
 }
 
-// should be run with -q
-task('geb-interactive', dependsOn: 'classes', type: JavaExec) {
-    classpath = sourceSets.main.runtimeClasspath + configurations.groovyShell
-    main = 'GroovyGebShellStarter'
-    standardInput = System.in
-    workingDir = 'src/main/groovy'
+// must be run with -q
+task('geb-interactive', type: ApplicationShellTask) {
+    // Pass all system properties to forked shell jvm (like -Dsomeproperty=test)
+    systemProperties = System.properties
+    jvmArgs = ['-Xmx2048m', '-Xms2048m']
+    args = ['-e', '. src/main/groovy/startGeb.groovy']
 }

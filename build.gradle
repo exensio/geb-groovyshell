@@ -21,7 +21,7 @@ dependencies {
 }
 
 // must be run with -q
-task('geb-interactive', type: ApplicationShellTask) {
+task('geb-groovyshell', type: ApplicationShellTask) {
     // Pass all system properties to forked shell jvm (like -Dsomeproperty=test)
     systemProperties = System.properties
     jvmArgs = ['-Xmx2048m', '-Xms2048m']

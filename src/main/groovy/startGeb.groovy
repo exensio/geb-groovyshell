@@ -1,12 +1,22 @@
-import geb.Browser
-import geb.binding.BindingUpdater
-import org.openqa.selenium.firefox.FirefoxDriver
+:set interpreterMode true
 
-firefoxDriver = new FirefoxDriver()
+// Workaround: we can't call this directly:
+String script = "import geb.Browser\n" +
+        "import geb.binding.BindingUpdater\n" +
+        "import org.openqa.selenium.firefox.FirefoxDriver\n" +
+        "new BindingUpdater(new Binding(), new Browser(driver: new FirefoxDriver()))"
 
-browser = new Browser(driver: firefoxDriver)
+Binding sharedData = new Binding()
+GroovyShell shell = new GroovyShell(sharedData)
 
-binding = new Binding()
-updater = new BindingUpdater(binding, browser)
+def updater = shell.evaluate(script).initialize()
+def browser = updater.browser
+def firefoxDriver = updater.browser.driver
 
-updater.initialize()
+// an example
+def getLatestExensioNews(browser)  {
+    browser.go("http://www.exensio.de")
+    def newsList = browser.find('div.view-aktuelles')
+    def news = newsList.find('a')
+    return news*.text()
+}

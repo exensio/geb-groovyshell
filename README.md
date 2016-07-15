@@ -31,7 +31,7 @@ no need to install gradle.
 
 Inside groovy shell:
 
-    browser.drive("http://www.test.example") // protocol is needed
+    browser.go("http://www.test.example") // protocol is needed
     def heading = browser.find(".heading") // finds the element with class 'heading'
     heading.text() // get the heading's text
     

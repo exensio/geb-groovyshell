@@ -13,10 +13,4 @@ def updater = shell.evaluate(script).initialize()
 def browser = updater.browser
 def firefoxDriver = updater.browser.driver
 
-// an example
-def getLatestExensioNews(browser)  {
-    browser.go("http://www.exensio.de")
-    def newsList = browser.find('div.view-aktuelles')
-    def news = newsList.find('a')
-    return news*.text()
-}
+println("You now can use the <<browser>> object to drive your browser.")

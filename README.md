@@ -66,23 +66,23 @@ additional webdriver settings.
 
 * After starting the browser you should be passed back to the groovy shell and be able to start typing your commands. If not: Most problems are caused by mismatching selenium and firefox version. You could try another combination by modifing the following lines in ```build.gradle```:
 
-
-	buildscript {
-		repositories {
-			mavenCentral()
-		}
-		dependencies {
-			classpath "org.gebish:geb-core:0.9.0" // <---
-			classpath "org.seleniumhq.selenium:selenium-support:2.46.0" // <---
-			classpath "org.seleniumhq.selenium:selenium-firefox-driver:2.46.0" // <---
-		}
-	}
-	
+```
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.gebish:geb-core:0.9.0" // <---
+        classpath "org.seleniumhq.selenium:selenium-support:2.46.0" // <---
+        classpath "org.seleniumhq.selenium:selenium-firefox-driver:2.46.0" // <---
+    }
+}
+```
 	
 * It is also possbile to use another browser vendor by modifing the line:
 
-
-	classpath "org.seleniumhq.selenium:selenium-firefox-driver:2.46.0"
-	
+```
+classpath "org.seleniumhq.selenium:selenium-firefox-driver:2.46.0"
+```
 
 See the offical selenium and geb docs for more information.

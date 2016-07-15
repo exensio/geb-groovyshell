@@ -5,9 +5,9 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath "org.gebish:geb-core:0.9.0"
-        classpath "org.seleniumhq.selenium:selenium-support:2.46.0"
-        classpath "org.seleniumhq.selenium:selenium-firefox-driver:2.46.0"
+        classpath "org.gebish:geb-core:0.13.1"
+        classpath "org.seleniumhq.selenium:selenium-support:2.53.1"
+        classpath "org.seleniumhq.selenium:selenium-firefox-driver:2.53.1"
     }
 }
 
@@ -19,6 +19,10 @@ apply plugin: 'java'
 
 repositories {
     mavenCentral()
+}
+
+groovysh {
+    groovyVersion = '2.4.5'
 }
 
 // must be run with -q

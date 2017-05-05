@@ -13,14 +13,12 @@ File downloadDriver(String currentPlatformName,
         String archiveFileExtension,
         String name,
         String version) {
-    // to avoid always a fresh download in jenkins we use another directory
-    def subPath = "../../tools/"
-    File destinationDirectory = new File("${subPath}drivers/${name}-${version}-${currentPlatformName}")
+    File destinationDirectory = new File("drivers/${name}-${version}-${currentPlatformName}")
     if (!destinationDirectory.exists()) {
         destinationDirectory.mkdirs()
     }
     File driverFile = new File("${destinationDirectory.absolutePath}/${driverFilePath}")
-    String localArchivePath = "${subPath}driver.${archiveFileExtension}"
+    String localArchivePath = "driver.${archiveFileExtension}"
 
     if (!driverFile.exists()) {
         def ant = new AntBuilder()

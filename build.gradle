@@ -1,16 +1,5 @@
 import com.tkruse.gradle.groovysh.ApplicationShellTask
 
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath "org.gebish:geb-core:0.13.1"
-        classpath "org.seleniumhq.selenium:selenium-support:2.53.1"
-        classpath "org.seleniumhq.selenium:selenium-firefox-driver:2.53.1"
-    }
-}
-
 plugins {
     id "com.github.tkruse.groovysh" version "1.0.8"
 }
@@ -21,15 +10,21 @@ repositories {
     mavenCentral()
 }
 
-groovysh {
-    groovyVersion = '2.4.5'
+def gebVersion = '1.1.1'
+def webdriverVersion = '3.4.0'
+
+dependencies {
+    compile group: 'org.apache.ant', name: 'ant', version: '1.10.0'
+    compile "org.gebish:geb-core:$gebVersion"
+    compile "org.seleniumhq.selenium:selenium-support:$webdriverVersion"
+    compile "org.seleniumhq.selenium:selenium-chrome-driver:$webdriverVersion"
 }
+
 
 // must be run with -q
 task('geb-groovyshell', type: ApplicationShellTask) {
     // Pass all system properties to forked shell jvm (like -Dsomeproperty=test)
     systemProperties = System.properties
-    classpath = classpath + buildscript.configurations.classpath
     jvmArgs = ['-Xmx2048m', '-Xms2048m']
     args = ['-e', '. src/main/groovy/startGeb.groovy']
 }

@@ -10,6 +10,7 @@ if you just want to try something out.
 ## Requirements
 
 * Java 8
+* JDK 8
 * ```JAVA_HOME``` has been set up
 
 A [gradle wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html) is already included so their is 

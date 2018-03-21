@@ -1,4 +1,6 @@
 # Interactive Geb shell
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fexensio%2Fgeb-groovyshell.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fexensio%2Fgeb-groovyshell?ref=badge_shield)
+
 
 Starts Chrome and provides a [groovy shell](http://www.groovy-lang.org/groovysh.html) to execute [geb](http://www.gebish.org) commands.
 
@@ -49,3 +51,7 @@ Example:
 
 	
 See the offical selenium and geb docs for more information.
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fexensio%2Fgeb-groovyshell.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fexensio%2Fgeb-groovyshell?ref=badge_large)

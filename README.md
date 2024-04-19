@@ -7,6 +7,10 @@ before using them in my functional tests.
 Especially when starting to learn geb it can be painful (and time-consuming) to restart your tests (including the whole application under test)
 if you just want to try something out.
 
+## [exensio GmbH Blog](https://www.exensio.de/news-medien)
+
+This repositroy is created for the blogpost: [Interaktive Browser-Automatisierung mit Geb und der Groovy-Shell](https://www.exensio.de/news-medien/newsreader-blog/interaktive-browser-automatisierung-mit-geb-und-der-groovy-shell)
+
 ## Requirements
 
 * Java 8
